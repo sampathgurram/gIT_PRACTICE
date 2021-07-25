@@ -1,0 +1,107 @@
+
+Python Modules
+A python module can be defined as a python program file which contains a python code including python functions, class, or variables. In other words, we can say that our python code file saved with the extension (.py) is treated as the module. We may have a runnable code inside the python module.
+
+Modules in Python provides us the flexibility to organize the code in a logical way.
+
+To use the functionality of one module into another, we must have to import the specific module.
+
+Example
+In this example, we will create a module named as file.py which contains a function func that contains a code to print some message on the console.
+
+Let's create the module named as file.py.
+
+#displayMsg prints a message to the name being passed.   
+def displayMsg(name)  
+    print("Hi "+name);    
+Here, we need to include this module into our main module to call the method displayMsg() defined in the module named file.
+
+Loading the module in our python code
+We need to load the module in our python code to use its functionality. Python provides two types of statements as defined below.
+
+The import statement
+The from-import statement
+The import statement
+The import statement is used to import all the functionality of one module into another. Here, we must notice that we can use the functionality of any python source file by importing that file as the module into another python source file.
+
+We can import multiple modules with a single import statement, but a module is loaded once regardless of the number of times, it has been imported into our file.
+
+The syntax to use the import statement is given below.
+
+import module1,module2,........ module n  
+Hence, if we need to call the function displayMsg() defined in the file file.py, we have to import that file as a module into our module as shown in the example below.
+
+Example:
+import file;  
+name = input("Enter the name?")  
+file.displayMsg(name)  
+Output:
+
+Enter the name?John
+Hi John
+The from-import statement
+Instead of importing the whole module into the namespace, python provides the flexibility to import only the specific attributes of a module. This can be done by using from? import statement. The syntax to use the from-import statement is given below.
+
+from < module-name> import <name 1>, <name 2>..,<name n>   
+Consider the following module named as calculation which contains three functions as summation, multiplication, and divide.
+
+calculation.py:
+
+#place the code in the calculation.py   
+def summation(a,b):  
+    return a+b  
+def multiplication(a,b):  
+    return a*b;  
+def divide(a,b):  
+    return a/b;  
+Main.py:
+
+from calculation import summation    
+#it will import only the summation() from calculation.py  
+a = int(input("Enter the first number"))  
+b = int(input("Enter the second number"))  
+print("Sum = ",summation(a,b)) #we do not need to specify the module name while accessing summation()  
+Output:
+
+Enter the first number10
+Enter the second number20
+Sum =  30
+The from...import statement is always better to use if we know the attributes to be imported from the module in advance. It doesn't let our code to be heavier. We can also import all the attributes from a module by using *.
+
+Consider the following syntax.
+
+from <module> import *   
+Renaming a module
+Python provides us the flexibility to import some module with a specific name so that we can use this name to use that module in our python source file.
+
+The syntax to rename a module is given below.
+
+import <module-name> as <specific-name>   
+Example
+#the module calculation of previous example is imported in this example as cal.   
+import calculation as cal;  
+a = int(input("Enter a?"));  
+b = int(input("Enter b?"));  
+print("Sum = ",cal.summation(a,b))  
+Output:
+
+Enter a?10
+Enter b?20
+Sum =  30
+Using dir() function
+The dir() function returns a sorted list of names defined in the passed module. This list contains all the sub-modules, variables and functions defined in this module.
+
+Consider the following example.
+
+Example
+import json  
+  
+List = dir(json)  
+  
+print(List)  
+
+
+
+
+
+
